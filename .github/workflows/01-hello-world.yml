@@ -8,4 +8,4 @@ jobs:
     name: Say Hello Inline bash
     runs-on: ubuntu-24.04
     steps:
-      -run: echo "Hello World"
+      - run: echo "Hello World"
