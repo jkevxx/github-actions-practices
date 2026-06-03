@@ -1,11 +1,12 @@
 name: Hello World
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Enables the "Run workflow" button in GitHub
 
 jobs:
   say-hello-inline-bash:
     name: Say Hello Inline bash
     runs-on: ubuntu-24.04
     steps:
-      - run: echo "Hello World"
+      - name: Hello World
+        run: echo "Hello World"
