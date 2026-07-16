@@ -1,12 +1,12 @@
 name: 03 - Schedule
 
-on:
-  schedule:
-    - cron: '0 9 * * WED'
+# on:
+#   schedule:
+#     - cron: '0 9 * * WED'
 
-jobs:
-  schedule:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Greetings
-        run: echo "Hi from GitHub Actions!"
+# jobs:
+#   schedule:
+#     runs-on: ubuntu-24.04
+#     steps:
+#       - name: Greetings
+#         run: echo "Hi from GitHub Actions!"
