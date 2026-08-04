@@ -10,9 +10,20 @@ jobs:
   inspect-event:
     name: Inspect Event
     runs-on: ubuntu-24.04
+    permissions:
+      issues: write
+
     steps:
       - name: Inspect event
         run: |
           echo "Event: ${{github.event_name}}"
           echo "Issue: ${{github.event.issue.number}}"
           echo "Comment: ${{github.event.comment.body}}"
+
+      - name: Comment like a bot in Github Actions
+        if: github.event_name == 'issues' && github.event.action == 'opened'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: gh issue comment "$ISSUE_NUMBER" --body "Thanks for you contribution" --repo "$GITHUB_REPOSITORY"
